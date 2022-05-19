@@ -1,8 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 
 public class Board extends JPanel {
     private final ImageIcon imageIcon;
@@ -60,7 +58,13 @@ public class Board extends JPanel {
 
     private class ButtonListener implements ActionListener {
          public void actionPerformed(ActionEvent event) {
-             new Answer(s2.Weight/(s3.sendWeightSlider()*s3.sendWeightSlider()));
+             double slimness;
+             if(s2.bodyStructure.equals("small")) slimness = 0.9;
+             else if (s2.bodyStructure.equals("medium")) slimness = 1;
+             else slimness = 1.1;
+             double inputActualWeight = Integer.parseInt(s4.inputActualWeight.getText());
+             double idealWeight = (s3.sendWeightSlider() - 100 + (inputActualWeight / 10)) * 0.9 * slimness;
+             new Answer(s2.Weight/((s3.sendWeightSlider())*(s3.sendWeightSlider())), idealWeight,s2.Weight);
              s2.groupBodyStructure.clearSelection();
              s2.groupGender.clearSelection();
              s3.clearWeightSlider();
@@ -68,7 +72,6 @@ public class Board extends JPanel {
              s4.inputFirstName.setText("");
              s4.inputLastName.setText("");
              s4.inputAge.setText("");
-             System.out.println(s2.Weight/(s3.sendWeightSlider()*s3.sendWeightSlider()));
          }
     }
 

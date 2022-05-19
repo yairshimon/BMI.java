@@ -9,7 +9,7 @@ public class SlideColorPanel extends JPanel {
 
     private JSlider weightSlider;
 
-    public int sendWeightSlider() {
+    public float sendWeightSlider() {
         return weightSlider.getValue();
     }
 
