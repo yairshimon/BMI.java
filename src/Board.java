@@ -1,7 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+
 public class Board extends JPanel {
     private final ImageIcon imageIcon;
     private UserDetails s2 ;
@@ -42,17 +44,33 @@ public class Board extends JPanel {
         bot.add(jButton1);
         bot.add(jButton2);
         add (bot, BorderLayout.SOUTH);
+        ButtonGroup groupBodyStructure = new ButtonGroup();
+        groupBodyStructure.add (jButton1);
+        groupBodyStructure.add (jButton2);
+        s4.inputActualWeight.addFocusListener(new FocusListener() {
+            @Override public void focusGained(FocusEvent e) {}
+            @Override
+            public void focusLost(FocusEvent e) {
+                String text = s4.inputActualWeight.getText();
+                if(!text.isEmpty()) s2.Weight = Float.parseFloat (text);
+            }
+        });
 
     }
 
-        private class ButtonListener implements ActionListener {
+    private class ButtonListener implements ActionListener {
          public void actionPerformed(ActionEvent event) {
-                s2.groupBodyStructure.clearSelection();
-                s2.groupGender.clearSelection();
-                s3.clearWeightSlider();
-                System.out.println(s2.bodyStructure);
-            }
-        }
+             new Answer(s2.Weight/(s3.sendWeightSlider()*s3.sendWeightSlider()));
+             s2.groupBodyStructure.clearSelection();
+             s2.groupGender.clearSelection();
+             s3.clearWeightSlider();
+             s4.inputActualWeight.setText("");
+             s4.inputFirstName.setText("");
+             s4.inputLastName.setText("");
+             s4.inputAge.setText("");
+             System.out.println(s2.Weight/(s3.sendWeightSlider()*s3.sendWeightSlider()));
+         }
+    }
 
 
     protected void paintComponent(Graphics g) {

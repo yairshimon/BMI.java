@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class UserDetails extends JPanel {
+    public float Weight;
     private JLabel header;
     public JCheckBox Male, Female;
     private final ImageIcon imageIcon;
@@ -12,15 +13,17 @@ public class UserDetails extends JPanel {
     public String gender ;
     ButtonGroup groupGender;
     ButtonGroup groupBodyStructure;
-    public String Weight;
+
+    public JTextField inputFirstName,inputLastName,inputAge,inputActualWeight;
 
 
 
     public UserDetails() {
         this.imageIcon = new ImageIcon("1.jpg");
+        Weight = 0;
     }
 
-    private JTextField inputActualWeight;
+
 
     public void BodyFrame()  {
         header = new JLabel ("     body-frame:    ");
@@ -70,9 +73,9 @@ public class UserDetails extends JPanel {
         JLabel lastName = new JLabel("Enter last name:");
         JLabel age = new JLabel("Enter your age:");
         JLabel actualWeight = new JLabel("Enter weight:");
-        JTextField inputFirstName = new JTextField(5);
-        JTextField inputLastName = new JTextField(5);
-        JTextField inputAge = new JTextField(5);
+        inputFirstName = new JTextField(5);
+        inputLastName = new JTextField(5);
+        inputAge = new JTextField(5);
         inputActualWeight = new JTextField (5);
         add(firstName);
         add(inputFirstName);
@@ -95,11 +98,10 @@ public class UserDetails extends JPanel {
 
         public void actionPerformed (ActionEvent event) {
             if(inputActualWeight.getText().length() != 0){
-                Weight = inputActualWeight.getText();
-                System.out.println(";;;");
+                String text = inputActualWeight.getText();
+                Weight = Float.parseFloat (text);
+                System.out.println("224214");
             }
-
-
         }
 }
 
