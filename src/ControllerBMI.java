@@ -40,7 +40,7 @@ public class ControllerBMI extends JPanel {
         s2.Male.addActionListener(listenerJCheckBox);
         s2.Female.addActionListener(listenerJCheckBox);
         SliderListener listenerSlideColorPanel = new SliderListener();
-        s3.weightSlider.addChangeListener (listenerSlideColorPanel);
+        s3.heightSlider.addChangeListener (listenerSlideColorPanel);
         s4.inputActualWeight.addFocusListener(new FocusListener() {
             @Override
             public void focusGained(FocusEvent e) {}
@@ -54,7 +54,7 @@ public class ControllerBMI extends JPanel {
     }
     private class SliderListener implements ChangeListener {
         public void stateChanged (ChangeEvent event) {
-            int weight = s3.weightSlider.getValue();
+            int weight = s3.heightSlider.getValue();
             s3.weightLabel.setText ("Weight = " + weight);
             s3.highUser1 = weight;
         }
@@ -85,8 +85,8 @@ public class ControllerBMI extends JPanel {
                 else slimness = 1.1;
                 inputAge = Integer.parseInt(s4.inputAge.getText());
 
-                double idealWeight = (s3.sendWeightSlider() - 100 + (inputAge / 10)) * 0.9 * slimness;
-                new Answer(s2.Weight / ((s3.sendWeightSlider()) * (s3.sendWeightSlider())), idealWeight, s2.Weight);
+                double idealWeight = (s3.sendHeightSlider() - 100 + (inputAge / 10)) * 0.9 * slimness;
+                new Answer(s2.Weight / ((s3.sendHeightSlider()) * (s3.sendHeightSlider())), idealWeight, s2.Weight);
                 s5.send.setVisible(false);
             }
             s2.groupBodyStructure.clearSelection();

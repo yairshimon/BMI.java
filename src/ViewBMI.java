@@ -15,7 +15,7 @@ public class ViewBMI extends JPanel {
     public JTextField inputFirstName,inputLastName,inputAge,inputActualWeight;
 
 
-    public JSlider weightSlider;
+    public JSlider heightSlider;
     public JLabel weightLabel;
     public int highUser1 ;
     public JButton clear, send;
@@ -26,13 +26,13 @@ public class ViewBMI extends JPanel {
         highUser1 = 0;
     }
 
-    public float sendWeightSlider() {
-        return weightSlider.getValue();
+    public float sendHeightSlider() {
+        return heightSlider.getValue();
     }
 
     public void clearWeightSlider() {
         weightLabel.setText("Weight = 140");
-        weightSlider.setValue(ModelBMI.MIN_SLIDE_COLOR_PANEL);
+        heightSlider.setValue(ModelBMI.MIN_SLIDE_COLOR_PANEL);
     }
 
 
@@ -51,19 +51,19 @@ public class ViewBMI extends JPanel {
     }
 
     public void SlideColorPanel() {
-        weightSlider = new JSlider (JSlider.HORIZONTAL, ModelBMI.MIN_SLIDE_COLOR_PANEL, ModelBMI.MAX_SLIDE_COLOR_PANEL, ModelBMI.MIN_SLIDE_COLOR_PANEL);
-        weightSlider.setMajorTickSpacing (ModelBMI.MAJOR_TICK_SPACING);
-        weightSlider.setMinorTickSpacing (ModelBMI.MINOR_TICK_SPACING);
-        weightSlider.setPaintTicks (true);
-        weightSlider.setPaintLabels (true);
-        weightSlider.setAlignmentX (Component.LEFT_ALIGNMENT);
+        heightSlider = new JSlider (JSlider.HORIZONTAL, ModelBMI.MIN_SLIDE_COLOR_PANEL, ModelBMI.MAX_SLIDE_COLOR_PANEL, ModelBMI.MIN_SLIDE_COLOR_PANEL);
+        heightSlider.setMajorTickSpacing (ModelBMI.MAJOR_TICK_SPACING);
+        heightSlider.setMinorTickSpacing (ModelBMI.MINOR_TICK_SPACING);
+        heightSlider.setPaintTicks (true);
+        heightSlider.setPaintLabels (true);
+        heightSlider.setAlignmentX (Component.LEFT_ALIGNMENT);
         weightLabel = new JLabel ("Weight = 140");
         weightLabel.setAlignmentX (Component.LEFT_ALIGNMENT);
         JPanel controls = new JPanel();
         BoxLayout layout = new BoxLayout (controls, BoxLayout.Y_AXIS);
         controls.setLayout (layout);
         controls.add (weightLabel);
-        controls.add (weightSlider);
+        controls.add (heightSlider);
         add (controls);
     }
 
