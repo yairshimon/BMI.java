@@ -20,8 +20,8 @@ public class ViewBMI extends JPanel {
     public int highUser1 ;
     public JButton clear, send;
 
-    public ViewBMI() {
-        this.imageIcon = new ImageIcon("1.jpg");
+    public ViewBMI(String image) {
+        this.imageIcon = new ImageIcon(image);
         Weight = 0;
         highUser1 = 0;
     }

@@ -6,19 +6,19 @@ import java.awt.event.*;
 
 public class ControllerBMI extends JPanel {
     private final ImageIcon imageIcon;
-    private ViewBMI s1,s2,s3,s4,s5;
+    private final ViewBMI s1,s2,s3,s4,s5;
 
     public ControllerBMI(int x, int y, int width, int height) {
-        this.imageIcon = new ImageIcon("1.jpg");
+        this.imageIcon = new ImageIcon("2.jpg");
         this.setBounds(x, y, width, height);
         this.setBackground(Color.BLACK);
         BorderLayout borderLayout = new BorderLayout(27, 30);
         this.setLayout(borderLayout);
-        s1 = new ViewBMI();
-        s2 = new ViewBMI();
-        s4 = new ViewBMI();
-        s3 = new ViewBMI();
-        s5 = new ViewBMI();
+        s1 = new ViewBMI("2.jpg");
+        s2 = new ViewBMI("3.jpg");
+        s3 = new ViewBMI("1.jpg");
+        s4 = new ViewBMI("4.jpg");
+        s5 = new ViewBMI("2.jpg");
         s1.header();
         s2.Gender();
         s2.BodyFrame();
@@ -53,11 +53,10 @@ public class ControllerBMI extends JPanel {
 
     }
     private class SliderListener implements ChangeListener {
-        private int Weight;
         public void stateChanged (ChangeEvent event) {
-            Weight = s3.weightSlider.getValue();
-            s3.weightLabel.setText ("Weight = " + Weight);
-            s3.highUser1 = Weight;
+            int weight = s3.weightSlider.getValue();
+            s3.weightLabel.setText ("Weight = " + weight);
+            s3.highUser1 = weight;
         }
     }
 
@@ -80,7 +79,7 @@ public class ControllerBMI extends JPanel {
     private class ButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent event) {
             if (event.getSource() == s5.send){
-                double slimness = 0,inputAge = 0;
+                double slimness,inputAge;
                 if (s2.bodyStructure.equals("small")) slimness = 0.9;
                 else if (s2.bodyStructure.equals("medium")) slimness = 1;
                 else slimness = 1.1;
