@@ -3,12 +3,12 @@ public class Answer {
     JLabel answer;
     public Answer(float answerUser, double idealWeight , float yourWeight){
             answer = new JLabel("");
-            if (answerUser < 0.0015) answer.setText("You Anorexic ");
-            if (answerUser > 0.0015 && answerUser < 0.00185) answer.setText("You Underweight ");
-            if (answerUser >0.00185 && answerUser < 0.00249) answer.setText("You Normal");
-            if (answerUser > 0.00249 && answerUser < 0.0029) answer.setText ("You Overweight");
-            if (answerUser > 0.00300 && answerUser < 0.0035 ) answer.setText("You Obese");
-            if (answerUser >  0.0035 ) answer.setText("You Extreme Obese\n ");
+            if (answerUser < 15) answer.setText("You Anorexic. your BMI is: " + answerUser );
+            if (answerUser > 15 && answerUser < 18.5) answer.setText("You Underweight. your BMI is: " + answerUser);
+            if (answerUser >18.5 && answerUser < 24.9) answer.setText("You Normal. your BMI is: " + answerUser);
+            if (answerUser > 25 && answerUser < 29) answer.setText ("You Overweight. your BMI is: " + answerUser);
+            if (answerUser > 30 && answerUser < 35 ) answer.setText("You Obese. your BMI is: " + answerUser);
+            if (answerUser >  35 ) answer.setText("You Extreme Obese. your BMI is: " + answerUser);
             JOptionPane.showMessageDialog(null, answer);
             JOptionPane.showMessageDialog(null, "Your correct weight is " + yourWeight +". ideal weight is " + idealWeight);
     }

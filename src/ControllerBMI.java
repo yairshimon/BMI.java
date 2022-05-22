@@ -84,9 +84,8 @@ public class ControllerBMI extends JPanel {
                 else if (s2.bodyStructure.equals("medium")) slimness = 1;
                 else slimness = 1.1;
                 inputAge = Integer.parseInt(s4.inputAge.getText());
-
                 double idealWeight = (s3.sendHeightSlider() - 100 + (inputAge / 10)) * 0.9 * slimness;
-                new Answer(s2.Weight / ((s3.sendHeightSlider()) * (s3.sendHeightSlider())), idealWeight, s2.Weight);
+                new Answer((s2.Weight / ((s3.sendHeightSlider()) * (s3.sendHeightSlider())) * 10000), idealWeight, s2.Weight);
                 s5.send.setVisible(false);
             }
             s2.groupBodyStructure.clearSelection();
